@@ -114,7 +114,7 @@ searchinput.addEventListener('keyup', function () {
         limitedResult.forEach(resultItem => {
             suggestion += `
                 <div class="emplacSugg">
-                    <a class="noDeco" href="article.html?ref=${resultItem.ref}&art=${resultItem.article}&quest=${resultItem.Question}&img=${resultItem.img}&recherche=${input}&refT=${resultItem.refT}">
+                    <a class="noDeco" href="article.html?ref=${resultItem.ref}&recherche=${input}">
                         <div class="suggestion">
                             <img class="imgtheme" src="${resultItem.img}" alt="">
                             <div class="propo">
