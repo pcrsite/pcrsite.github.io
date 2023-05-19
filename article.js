@@ -98,12 +98,12 @@ const V= ".";
 
 console.log(refb)
 
-let article = null; // Initialisation avec une valeur par défaut
+let article = null; 
 
 for (let i = 0; i < Question.length; i++) {
   if (Question[i].ref === refb) {
-    article = Question[i].article; // Met à jour la variable "article" avec la valeur correspondante
-    break; // Sort de la boucle dès qu'une correspondance est trouvée
+    article = Question[i].article; 
+    break; 
   }
 }
 
