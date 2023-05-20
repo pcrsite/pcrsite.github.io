@@ -85,7 +85,24 @@ h2 {
 
 input:focus {
     outline: 3px solid var(--gris2);
-  }
+}
+
+.erreur1{
+    position: fixed;
+    padding-left: 1%;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    z-index: 10;
+    background-color: rgb(212, 41, 41);
+    color: white;
+    border-top-right-radius: 0.3rem;
+    
+}
+
+.erreur1.cache{
+display: none;
+}
 
 
 h1 {
@@ -229,7 +246,7 @@ h1 {
     width: 100%;
 }
 
-.fleche:hover {
+.fleche{
     cursor: pointer;
 
 }

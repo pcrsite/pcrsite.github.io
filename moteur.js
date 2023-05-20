@@ -94,7 +94,9 @@ const Question = [
 ];
 const searchinput = document.getElementById('searchInput');
 const showAllButton = document.getElementById('showAllButton');
-
+const urlParams = new URLSearchParams(window.location.search);
+const erreur = urlParams.get('erreur')
+const ref = urlParams.get('ref')
 
 searchinput.addEventListener('keyup', function () {
     const input = searchinput.value;
@@ -221,5 +223,20 @@ if (computedStyle.display === 'none') {
 }else{
     b_suivant.classList.add('cache');
 }
+}
+
+if(erreur != null){
+    document.write(`
+    <div class="erreur1">
+    <font>L'article de référence "${ref}" n'a pas été trouvé ou n'est pas référencer...</font>
+ </div>
+    `)
+}else{
+    console.log("pas d'erreur")
+    document.write(`
+    <div class="erreur1 cache">
+    <font>L'article de référence "${ref}" n'a pas été trouvé ou n'est pas référencer...</font>
+ </div>
+    `)
 }
 

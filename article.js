@@ -95,7 +95,7 @@ const Question = [
 const urlParams = new URLSearchParams(window.location.search);
 const refb = urlParams.get('ref')
 const V= ".";
-
+var url = "index.html?erreur=1&ref=" + encodeURIComponent(refb);
 console.log(refb)
 
 let article = null; 
@@ -111,6 +111,7 @@ if (article !== null) {
   console.log("L'article correspondant à la référence", refb, "est :", article);
 } else {
   console.log("Aucun article correspondant à la référence", refb, "n'a été trouvé.");
+  window.location.href=url
 }
 
 
