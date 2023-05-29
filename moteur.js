@@ -1,3 +1,4 @@
+console.log('Philbert Pelletier au style & Vianney Pacaud au script')
 const Question = [
     //theme1, question1, article de 1 à 10.
     { numéroArticle: 1, article: 'Une telle doctrine est-­elle nécessaire ?', motsClé: 'la doctrine de l eglise catholique est elle vraiment necessaire ', numéroQuestion: 1, Question: 'LA DOCTRINE SACRÉE. QU’EST-­ELLE? AQUOI S’ÉTEND-­ELLE?', numérotheme: 1, theme: 'DIEU,LA TRINITÉ,LA CRÉATION', url: '1.1.1.html', ref: '1.1.1', img: '1.jpg', refT: '111' },
@@ -98,16 +99,21 @@ const urlParams = new URLSearchParams(window.location.search);
 const erreur = urlParams.get('erreur')
 const ref = urlParams.get('ref')
 
+const nothing = document.getElementById('nothing')
+
 searchinput.addEventListener('keyup', function () {
     const input = searchinput.value;
+    console.log (searchinput.value)
     const regex = new RegExp(input.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&').toLowerCase().split(' ').join('|'));
     const result = Question.filter(item => regex.test(item.motsClé.toLowerCase()) || item.article.toLocaleLowerCase().includes(input.toLocaleLowerCase()));
+    console.log (result)
 
     // Tri 
     result.sort((a, b) => {
         const aMatches = (a.motsClé.toLowerCase().match(regex) || []).length + (a.article.toLocaleLowerCase().includes(input.toLocaleLowerCase()) ? 3 : 1);
         const bMatches = (b.motsClé.toLowerCase().match(regex) || []).length + (b.article.toLocaleLowerCase().includes(input.toLocaleLowerCase()) ? 1 : 0);
         return bMatches - aMatches;
+        
     });
 
     let suggestion = '';
@@ -116,7 +122,7 @@ searchinput.addEventListener('keyup', function () {
         limitedResult.forEach(resultItem => {
             suggestion += `
                 <div class="emplacSugg">
-                    <a class="noDeco" href="article.html?ref=${resultItem.ref}&recherche=${input}">
+                    <a class="noDeco" href="article.php?ref=${resultItem.ref}&recherche=${input}">
                         <div class="suggestion">
                             <img class="imgtheme" src="${resultItem.img}" alt="">
                             <div class="propo">
@@ -131,9 +137,19 @@ searchinput.addEventListener('keyup', function () {
         
         if (result.length > 10) {
             showAllButton.style.display = 'block';
+            console.log("Il y a",result.length,"propositiont(s)")
         } else {
             showAllButton.style.display = 'none';
         }
+        if (result.length < 1) {
+            console.log("rien à proposer")
+            nothing.style.display= 'block';
+        }else{
+            nothing.style.display= 'none';
+        }
+    }else{
+        console.log("plus rien n'est écrit")
+        showAllButton.style.display = 'none';
     }
     document.getElementById('suggestion').innerHTML = suggestion;
 });
@@ -159,12 +175,17 @@ showAllButton.addEventListener('click', function () {
             </div>
         `;
     });
+  
 
-    
+  
     showAllButton.style.display = 'none';
 
     document.getElementById('suggestion').innerHTML = suggestion;
 });
+
+
+
+
 
 var textes = document.getElementsByClassName('meilleurs');
 var indexTexteVisible = 0;
@@ -172,6 +193,7 @@ var boutonPrecedent = document.getElementById('bouton-precedent');
 var boutonSuivant = document.getElementById('bouton-suivant');
 var textun = document.getElementById('bouton-cacheUn');
 var b_suivant = document.getElementById('bouton-cacheDeux');
+
 
 afficherTexte();
 verifierBoutons();
@@ -239,4 +261,6 @@ if(erreur != null){
  </div>
     `)
 }
+
+
 
