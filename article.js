@@ -95,7 +95,7 @@ const Question = [
 const urlParams = new URLSearchParams(window.location.search);
 const refb = urlParams.get('ref')
 const V= ".";
-var url = "index.php?erreur=1&ref=" + encodeURIComponent(refb);
+var url = "index.html?erreur=1&ref=" + encodeURIComponent(refb);
 console.log(refb)
 
 let article = null; 
