@@ -16,11 +16,30 @@
 <body>
     <div class="bandeau">
         <h1><img class="imglogo" src="logoiseau2.svg" alt="logo"></img> LaSomme</h1>
+        <div class="Conexion">
+        <?php 
+    session_start();
+    require_once 'connexion/config.php'; 
+   
+    if(!isset($_SESSION['user'])){
+       echo '<a href="connexion/index.php"><img src="connexion/conte.svg" alt="conexion"></a>';
+       
+    }else{
+
+
+    $req = $bdd->prepare('SELECT * FROM utilisateur WHERE token = ?');
+    $req->execute(array($_SESSION['user']));
+    $data = $req->fetch();
+    echo  '<a href="connexion/reglage.php"><img src="Conecter.svg" alt="conecter"></a>';
+    }
+?>
+</div>
     </div>
     <div class="animationsearch">
         <h2>Que voulez-vous savoir sur la théologie ?</h2>
         <div class="recherche">
             <input id="searchInput" class="searchbar input" type="text">
+            <div id="nothing" class="nothing">Attention, ce site ne peut fournir de commentaires théologiques concernant des évènements ou idées postérieurs à 1274. <a href="vocation.html" class="learnmore">Voir vocation et notice du site</a></div>
             <div class="propPosition" id="suggestion"></div>
             <a class="affPlus" id="showAllButton" style="display: none;">Afficher tout</a>
         </div>
@@ -98,6 +117,10 @@
    
 
     <script src="moteur.js"></script>
+
+    <footer>
+        <a class="learnmore" href="vocation.html">En savoir plus</a>
+    </footer>
 
 </body>
 
