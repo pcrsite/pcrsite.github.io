@@ -98,6 +98,7 @@ const showAllButton = document.getElementById('showAllButton');
 const urlParams = new URLSearchParams(window.location.search);
 const erreur = urlParams.get('erreur')
 const ref = urlParams.get('ref')
+
 const nothing = document.getElementById('nothing')
 
 searchinput.addEventListener('keyup', function () {
@@ -121,7 +122,7 @@ searchinput.addEventListener('keyup', function () {
         limitedResult.forEach(resultItem => {
             suggestion += `
                 <div class="emplacSugg">
-                    <a class="noDeco" href="article.html?ref=${resultItem.ref}&recherche=${input}">
+                    <a class="noDeco" href="article.php?ref=${resultItem.ref}&recherche=${input}">
                         <div class="suggestion">
                             <img class="imgtheme" src="${resultItem.img}" alt="">
                             <div class="propo">
@@ -193,6 +194,7 @@ var boutonSuivant = document.getElementById('bouton-suivant');
 var textun = document.getElementById('bouton-cacheUn');
 var b_suivant = document.getElementById('bouton-cacheDeux');
 
+
 afficherTexte();
 verifierBoutons();
 
@@ -259,4 +261,6 @@ if(erreur != null){
  </div>
     `)
 }
+
+
 
