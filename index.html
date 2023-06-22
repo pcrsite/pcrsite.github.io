@@ -106,7 +106,7 @@
 </div>
 
 <div class="login-popup" id="login-popup">
-    <a class="close" id="close">X</a>
+    <a class="close" id="Close">&times</a>
     <p class="invitation">Pour plus de fonctionnalités (like, partage...), <a class="connect"
             href="connexion/inscription.html">inscrivez-vous</a> ou <a class="connect"
             href="connexion/index.html">connectez-vous</a> à votre compte !</p>

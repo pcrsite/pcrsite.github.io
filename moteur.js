@@ -193,7 +193,12 @@ var boutonPrecedent = document.getElementById('bouton-precedent');
 var boutonSuivant = document.getElementById('bouton-suivant');
 var textun = document.getElementById('bouton-cacheUn');
 var b_suivant = document.getElementById('bouton-cacheDeux');
+var closeBtn = document.getElementById("Close");
+var loginPopup = document.getElementById("login-popup");
 
+closeBtn.addEventListener("click", function() {
+    loginPopup.style.display = "none";
+  });
 
 afficherTexte();
 verifierBoutons();
