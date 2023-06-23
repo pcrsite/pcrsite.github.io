@@ -336,11 +336,7 @@ a {
 
 /*Pop-up pour se connecter ou s'inscrire*/
 .login-popup {
-    animation-name: frémir;
-    animation-duration: 0.3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
+    animation: vibration 0.5s infinite;
     box-shadow: 0 -5px 5px red;
     position: absolute;
     position: fixed;
@@ -366,31 +362,13 @@ a {
 
 }
 
-@keyframes frémir {
-    0% {
-        transform: rotate(0deg);
-        animation-delay: 1s;
-    }
-
-    25% {
-        transform: rotate(-2deg);
-        animation-delay: 1s;
-    }
-
-    50% {
-        transform: rotate(0deg);
-        animation-delay: 1s;
-    }
-
-    75% {
-        transform: rotate(2deg);
-        animation-delay: 1s;
-    }
-
-    100% {
-        transform: rotate(0deg);
-        animation-delay: 1s;
-    }
+@keyframes vibration {
+    0% { transform: translate(0); }
+    20% { transform: translate(-2px, 2px); }
+    40% { transform: translate(2px, -2px); }
+    60% { transform: translate(-2px, -2px); }
+    80% { transform: translate(2px, 2px); }
+    100% { transform: translate(0); }
 
 }
 
